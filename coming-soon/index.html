@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dendro Vision</title>
+  <link rel="shortcut icon" type="image/ico" href="./Element_Dendro.svg" />
+  <link rel="preload" href="./zh-cn.ttf" as="font" type="font/truetype" crossorigin>
+</head>
+
+<body>
+  <div>
+    <img src="./Element_Dendro.svg">
+    <img src="./Element_Dendro.svg" class="fx">
+    <h1>Coming Soon</h1>
+    <p>Under Construction</p>
+  </div>
+</body>
+
+<style>
+  @font-face {
+    font-family: "HYWenHei-85W";
+    src: url('./zh-cn.ttf');
+    src: url('./zh-cn.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(4);
+    translate: -50% -50%;
+    z-index: -1;
+    opacity: 1;
+    animation: fadeIn 1s ease-out, breath 60s ease-in-out;
+  }
+
+  img.fx {
+    opacity: 0;
+    z-index: -2;
+    animation: pulse 2s ease-in 2s infinite;
+  }
+
+  div {
+    font-family: 'HYWenHei-85W';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: rgb(62, 69, 87);
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0 5px rgb(218, 213, 203);
+  }
+
+  body {
+    background: rgb(218, 213, 203);
+    pointer-events: none;
+  }
+
+  h1,
+  p {
+    margin: 0;
+    animation: fadeIn 3s ease-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      filter: blur(3px);
+      opacity: 0;
+      scale: .8;
+    }
+
+    70% {
+      opacity: 0.4;
+    }
+
+    100% {
+      filter: blur(6px);
+      opacity: 0;
+      scale: 1.4;
+    }
+
+  }
+
+  @keyframes breath {
+    0% {
+      transform: scale(3.6);
+    }
+
+    50% {
+      transform: scale(4);
+    }
+
+    100% {
+      transform: scale(3.6);
+    }
+
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+
+    60% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+</html>

@@ -1,0 +1,342 @@
+article.card {
+    position: relative;
+    aspect-ratio: 5 / 6;
+    width: var(--card-width);
+    min-width: var(--card-width);
+    height: fit-content;
+    border-radius: 5%;
+    margin: 0.5em;
+    color: var(--accent);
+    outline: 0.225em solid transparent;
+    opacity: 1;
+    background: var(--primary);
+    z-index: 0;
+    font-size: var(--card-font-size);
+    cursor: pointer;
+    user-select: none;
+    transition: .15s;
+
+    &:active {
+        scale: 0.98 !important;
+    }
+
+    &::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% / 6);
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 0 5% 5%;
+        color: rgb(var(--accent-core-alt));
+    }
+
+    &:before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        scale: .99;
+        border-radius: 5%;
+        outline: 0.225em solid rgb(255 255 255 / 1);
+        box-shadow: 0 0 10px #fff, 0px -20px 25px -15px rgb(255 255 255 / 50%) inset;
+        z-index: -1;
+        opacity: 0;
+        transition: 0.15s;
+    }
+
+    &:hover {
+        scale: 1.05;
+
+        &::before {
+            opacity: 1;
+        }
+
+        picture::before {
+            filter: brightness(1.2);
+        }
+    }
+
+
+    span.display {
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        translate: -50%;
+        display: flex;
+
+        i {
+            color: #ffd400;
+            text-shadow: 0 1px 1px rgb(0 0 0 / 30%);
+        }
+    }
+
+    span.equiped-by {
+        position: absolute;
+        top: -0.5em;
+        right: -0.25em;
+        width: 2.5em;
+        height: 2.5em;
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &:before {
+            content: " ";
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            bottom: 0;
+            right: 0;
+            border-radius: 100%;
+            background: rgb(var(--dark-core-alt));
+            z-index: -1;
+            outline: 1px solid rgb(var(--primary-core), 0.8);
+        }
+    }
+
+    span.element {
+        position: absolute;
+        top: 0em;
+        left: 0em;
+        width: 2em;
+        height: 2em;
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &:before {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        &[data-element="anemo"] {
+            background-image: url("./static/elements/Element_anemo.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--anemo) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="geo"] {
+            background-image: url("./static/elements/Element_geo.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--geo) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="pyro"] {
+            background-image: url("./static/elements/Element_pyro.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--pyro) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="hydro"] {
+            background-image: url("./static/elements/Element_hydro.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--hydro) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="dendro"] {
+            background-image: url("./static/elements/Element_dendro.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--dendro) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="electro"] {
+            background-image: url("./static/elements/Element_electro.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--electro) / 0.5), transparent 66%);
+            }
+        }
+
+        &[data-element="cryo"] {
+            background-image: url("./static/elements/Element_cryo.png");
+
+            &::before {
+                background: radial-gradient(rgb(var(--cryo) / 0.5), transparent 66%);
+            }
+        }
+    }
+
+    picture {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: calc(100% * 5 / 6);
+        top: 0;
+        left: 0;
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        opacity: 1;
+        border-radius: 5% 5% 18% 0;
+        overflow: hidden;
+        z-index: -2;
+
+        div.refinement-label {
+            position: absolute;
+            top: 0.3em;
+            left: 0.3em;
+        }
+
+        div.refinement-label {
+            background: rgb(#000, 0.55);
+            padding: 0em 0.4em;
+            border-radius: 0.2em;
+            color: rgb(255 255 255 / .6);
+        }
+
+        img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            pointer-events: none;
+        }
+
+        &::after {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: bottom;
+            border-radius: 5% 5% 18% 0;
+            opacity: .3;
+            z-index: -1;
+        }
+
+        &::before {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: bottom;
+            border-radius: 5% 5% 18% 0;
+            z-index: -1;
+            transition: 0.15s;
+        }
+
+        &[data-star="0"]::before {
+            background: grey;
+        }
+
+        &[data-star="0"]::after {
+            background-image: var(--star-bg-1);
+        }
+
+        &[data-star="1"]::before {
+            background: var(--star-color-1);
+        }
+
+        &[data-star="1"]::after {
+            background-image: var(--star-bg-1);
+        }
+
+        &[data-star="4"]::before {
+            background: var(--star-color-4);
+        }
+
+        &[data-star="4"]::after {
+            background-image: var(--star-bg-4);
+        }
+
+        &[data-star="5"]::before {
+            background: var(--star-color-5);
+        }
+
+        &[data-star="5"]::after {
+            background-image: var(--star-bg-5);
+        }
+    }
+
+    span.selectable {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 4px);
+        border-radius: 5%;
+        border-top: var(--sel-bor-none);
+        border-bottom: var(--sel-bor-none);
+        margin: 0;
+        z-index: 1;
+    }
+
+    &.selected {
+
+        span.selectable {
+            border-top: var(--sel-bor);
+            border-bottom: var(--sel-bor);
+
+            &::before {
+                content: attr(data-order);
+                position: absolute;
+                top: -2px;
+                right: 0;
+                aspect-ratio: 1 / 1;
+                width: 25%;
+                border-radius: 0 20% 0 40%;
+                background: rgb(var(--selection-color));
+                color: var(--selection-color-font);
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    span.activable {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+        outline: 0.1em solid rgb(255 255 255 / 1);
+        opacity: 0;
+        filter: blur(1px);
+
+        &::before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            outline: 0.1em solid rgb(255 255 255 / 1);
+            opacity: 0;
+            filter: blur(0.5px);
+        }
+    }
+
+    &.active span.activable {
+        animation: activated .3s ease-out;
+    }
+}

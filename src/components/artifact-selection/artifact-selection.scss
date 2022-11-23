@@ -1,0 +1,71 @@
+div.tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    user-select: none;
+
+    label.tab {
+        position: relative;
+        padding: 1em;
+        cursor: pointer;
+        text-transform: capitalize;
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+
+        &::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 50%;
+            width: 0%;
+            border-bottom: 2px solid rgb(var(--primary-core), 0.75);
+        }
+
+        &.selected::after {
+            left: 0;
+            width: 100%;
+            transition: all 0.5s;
+        }
+    }
+}
+
+div.artifact-selection-menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 0.85em;
+    padding: 0.5em 0;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-mask-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 1em,
+            rgba(0, 0, 0, 1) calc(100% - 1em),
+            rgba(0, 0, 0, 0));
+    animation: in 0.35s ease-in-out;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    article {
+        font-size: inherit;
+    }
+}
+
+@keyframes in {
+    from {
+        opacity: 0.8;
+        filter: blur(1px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,34 @@
+section.artifacts {
+
+    div.arti-flex {
+        display: flex;
+
+        div.arti-col {
+            display: flex;
+            flex-direction: column;
+
+            article.card {
+                margin: 0;
+            }
+        }
+    }
+
+    .stat-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        padding: 0 0.5em;
+
+        h3 {
+            background: rgb(var(--primary-core), 0.1);
+            border-radius: 0.5em;
+            padding: 0.25em;
+            height: 41px;
+        }
+
+        label {
+            padding: 0.1em;
+            height: 41px;
+        }
+    }
+}

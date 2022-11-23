@@ -1,0 +1,10 @@
+article.stat {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5em 0;
+
+    label {
+        width: 50%;
+    }
+}

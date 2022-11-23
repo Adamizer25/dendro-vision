@@ -1,0 +1,118 @@
+div.main-list {
+    padding: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+h1.pip {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 2.5em;
+    margin-left: 1em;
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    text-transform: capitalize;
+    line-height: 2.5em;
+    margin: 0;
+    border-radius: 50em 0 0 50em;
+
+
+    &::before {
+        content: " ";
+        transition: 0.1s;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: .4em;
+        height: .4em;
+        translate: 1em -50%;
+        background-color: var(--primary);
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        content: " ";
+        transition: 0.1s;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 0.5em;
+        width: 0.5em;
+        translate: 0.875em -50%;
+        border-radius: 2px;
+        border: 0.08em solid var(--primary);
+        transform: rotate(45deg);
+        scale: 2;
+        opacity: 0;
+    }
+
+    &.active {
+        animation: glow 3s infinite;
+        background-image: linear-gradient(to right, rgb(var(--primary-core), 0.1), transparent);
+        transition: background-image 0.5s;
+
+        &::after {
+            opacity: 0.8;
+            scale: 1 !important;
+        }
+
+        &::before {
+            opacity: 0;
+        }
+
+        i.select {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        filter: brightness(1.5);
+
+        &::after {
+            opacity: 0.8;
+            scale: 1.2;
+        }
+    }
+
+    i.select {
+        position: absolute;
+        top: 50%;
+        left: 0.1em;
+        translate: 1em -50%;
+        scale: 0.8;
+        animation: cowmove 1s infinite ease-in-out;
+        opacity: 0;
+    }
+
+    :not(i.select) {
+        position: relative;
+        margin-left: 0.5em;
+        color: var(--primary);
+
+        i {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            translate: -50%;
+            margin: 0;
+        }
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: brightness(1.1)
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+
+    100% {
+        filter: brightness(1.1);
+    }
+}

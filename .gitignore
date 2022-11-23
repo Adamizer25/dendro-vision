@@ -1,0 +1,13 @@
+node_modules
+dist
+public
+.firebase/hosting.cHVibGlj.cache
+.firebase/hosting.ZGlzdA.cache
+.firebaserc
+.vscode/settings.json
+coming-soon/Catamaran-Regular.ttf
+coming-soon/NotoSansJP-Regular.otf
+coming-soon/SourceSansPro-Regular.ttf
+firebase.json
+package-lock.json
+src/firebase.ts

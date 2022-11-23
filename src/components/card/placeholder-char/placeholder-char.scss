@@ -1,0 +1,17 @@
+article.card i.char-pin {
+    font-size: 210%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    color: #bbb;
+
+    &.a-1 {
+        font-size: 230%;
+        translate: -50% -105%;
+    }
+
+    &.mid {
+        translate: -50% -50%;
+    }
+}

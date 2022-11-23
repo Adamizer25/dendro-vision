@@ -1,0 +1,55 @@
+p.effects {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+
+    span.effect-item {
+        position: relative;
+        background: none;
+        border: none;
+        outline: none;
+        margin: 0;
+        text-align: inherit;
+        transition: .1s;
+        cursor: pointer;
+
+        &:hover div.tool-tip {
+            display: flex;
+            opacity: 1;
+            animation: show-dialog 2s ease-out;
+        }
+
+        &.highlight {
+            color: rgb(var(--dendro-color));
+        }
+
+        span.widgets {
+            i {
+                margin: 0;
+                font-size: 1em;
+            }
+
+            margin-right: 1ch;
+        }
+
+        &:hover {
+            box-shadow: none;
+            animation: glow-breath 1s linear infinite;
+        }
+
+        &:focus {
+            box-shadow: none;
+            color: rgb(var(--dendro-color));
+            animation: p-activated .15s ease-out;
+
+            span.widgets i {
+                color: var(--light-active-rim);
+            }
+        }
+
+        &:active {
+            box-shadow: none;
+            color: var(--light-active-rim);
+        }
+    }
+}
